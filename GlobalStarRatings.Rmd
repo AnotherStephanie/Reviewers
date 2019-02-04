@@ -1,0 +1,23 @@
+---
+title: "BookStarRatings"
+author: "Stephanie Pulford"
+date: "2/4/2019"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Amazon Books: Star ratings
+On sites that house general reviews (as opposed to reviews for aficionadoes), we often see a characteristic bimodal "J shape" profile to individual reviews: a small peak of very negative reviews, and another peak at much higher reviews. This shape is so characteristic of Amazon reviews that it becomes a fractal property of the site. Here I've summarized all Amazon book star reviews from 1996-2014, and even in this grand summary we see evidence of the J-shape, with one-star reviews edging out two-star reviews.
+
+As I'll show in the next figure, this J-shape is characteristic of many *product* review profiles, but it is not a characteristic of all *reviewers*. Different types of reviewers make different contributions to this shape. 
+
+
+```{the plot}
+#read.csv("https://github.com/AnotherStephanie/Reviewers/blob/master/StarRatings.csv")
+read.csv("StarRatings.csv")
+barplot(Stars$Freq, main="Star ratings, Amazon books through 2014", names.arg=c("1 star", "2 stars", "3 stars", "4 stars", "5 stars"), ylab="Ratings count")
+
+
